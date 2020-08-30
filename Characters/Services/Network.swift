@@ -21,7 +21,7 @@ extension Network {
     
     class func request<T: Decodable, Parameters: Encodable>(with url: String, method: HTTPMethod = .get, parameters: Parameters? = nil, encoder: ParameterEncoder = URLEncodedFormParameterEncoder.default, headers: HTTPHeaders? = nil, success: ((T) -> Void)? = nil, failure: ((Error) -> Void)? = nil) {
         session.request(url, method: method, parameters: parameters, encoder: encoder, headers: headers)
-            .validate(statusCode: 200..<400)
+            .validate(statusCode: 200..<500)
             .responseJSON { (response) in
                 #if DEBUG
                 debugPrint(response)
