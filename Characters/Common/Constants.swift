@@ -19,6 +19,6 @@ enum API {
     static let logout = "/api/logout/".APIBaseUrl()
     static let signup = "/api/signup/".APIBaseUrl()
     //  Sandbox
-    static let text = "/api/get/text/".APIBaseUrl()
+    static let getText = "/api/get/text/".APIBaseUrl()
 }
 

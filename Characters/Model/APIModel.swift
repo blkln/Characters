@@ -51,6 +51,10 @@ struct User: Decodable {
     }
 }
 
+struct Locale: Encodable {
+    let locale: String
+}
+
 struct APIError: Decodable {
     let name: String?
     let message: String

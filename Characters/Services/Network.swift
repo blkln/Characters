@@ -49,20 +49,21 @@ extension Network {
 final class RequestInterceptor: Alamofire.RequestInterceptor {
 
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        /*
-        if urlRequest.url?.absoluteString.hasPrefix(API.auth) == true {
-            /// If the request does not require authentication, we can directly return it as unmodified.
+        
+        if urlRequest.url?.absoluteString.hasPrefix(API.login) == true ||
+           urlRequest.url?.absoluteString.hasPrefix(API.signup) == true {
             return completion(.success(urlRequest))
         }
+        
         var urlRequest = urlRequest
 
-        guard let token = UserData.shared.getAuth()?.access else {
+        guard let token = AuthManager.shared.getAccessToken() else {
             return completion(.success(urlRequest))
         }
-        /// Set the Authorization header value using the access token.
+        
         urlRequest.setValue("Bearer " + token, forHTTPHeaderField: "Authorization")
-*/
         completion(.success(urlRequest))
+        
     }
 
 }

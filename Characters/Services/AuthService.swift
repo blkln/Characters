@@ -12,7 +12,7 @@ class AuthService {
     
     static func login(with email: String, password: String, success: @escaping (ResponseUser) -> (), failure: @escaping (Error) -> ()) {
         let params = Login(email: email, password: password)
-        Network.request(with: API.login, method: .post, parameters: params, encoder: JSONParameterEncoder.default, success: success, failure: failure)
+        Network.request(with: API.login, method: .post, parameters: params, success: success, failure: failure)
     }
     
     static func logout(success: @escaping (Response) -> (), failure: @escaping (Error) -> ()) {
