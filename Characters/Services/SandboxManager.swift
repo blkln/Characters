@@ -23,10 +23,13 @@ class SandboxManager: SandboxDelegate {
             guard response.success, let text = response.data, !text.isEmpty else {
                 return
             }
+            
             text.forEach { (char) in
                 self?.characters[char] != nil ? (self?.characters[char]! += 1) : (self?.characters[char] = 1)
             }
+            
             success(response, self?.characters ?? [Character: Int]())
+            
         }) { (error) in
             debugPrint(error)
         }
