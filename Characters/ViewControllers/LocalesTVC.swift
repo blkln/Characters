@@ -21,7 +21,24 @@ class LocalesTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    var delegate = AuthManager()
 
+    @IBAction func logoutAction(_ sender: Any) {
+        delegate.logout(success: { [weak self] (response) in
+            guard response.success else {
+                let errorMessages = response.errors?.compactMap({$0.message + "\n"})
+                self?.errorAlert(with: errorMessages?.joined())
+                return
+            }
+            
+            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+            UIApplication.setRootView(storyboard.instantiateInitialViewController()!)
+
+        }) { [weak self] (error) in
+            self?.errorAlert(with: "Request error")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -93,7 +110,7 @@ extension LocalesTVC {
 extension LocalesTVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
+
     }
     
 }

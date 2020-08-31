@@ -85,7 +85,7 @@
         <!--LocalesTVC-->
         <scene sceneID="nHC-yN-bad">
             <objects>
-                <tableViewController id="rj5-26-uPA" customClass="LocalesTVC" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LocalesTVC" id="rj5-26-uPA" customClass="LocalesTVC" customModule="Characters" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2Nz-W5-Qu3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +114,14 @@
                             <outlet property="delegate" destination="rj5-26-uPA" id="NnM-TZ-Bxg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4Wj-x5-3FX"/>
+                    <navigationItem key="navigationItem" id="4Wj-x5-3FX">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="P5J-yh-rDb">
+                            <color key="tintColor" red="0.99381631609999999" green="0.4160615802" blue="0.01511099376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="logoutAction:" destination="rj5-26-uPA" id="CIu-V8-SHJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9BS-yi-0sB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -123,7 +130,7 @@
         <!--Navigation Controller-->
         <scene sceneID="8YH-0k-IO9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zoW-sJ-PsE" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavVC" automaticallyAdjustsScrollViewInsets="NO" id="zoW-sJ-PsE" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Ty-Ab-6xF">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

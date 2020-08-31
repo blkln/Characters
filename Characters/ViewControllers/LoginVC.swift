@@ -16,6 +16,8 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
 
+    var delegate = AuthManager()
+
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,28 +38,34 @@ class LoginVC: UIViewController {
             guard let name = nameTextField.text, !name.isEmpty else {
                 return
             }
-            AuthService.signup(with: name, email: email, password: password, success: { [weak self] (response) in
-                debugPrint(response)
+            delegate.signup(with: name, email: email, password: password, success: { [weak self] (response) in
+                
                 guard response.success else {
                     let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                     self?.errorAlert(with: errorMessages?.joined())
                     return
                 }
-                self?.performSegue(withIdentifier: "gotoLocaleVC", sender: self)
-            }) { (error) in
-                debugPrint(error)
+                
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
+                
+            }) { [weak self] (error) in
+                self?.errorAlert(with: "Request error")
             }
         } else {
-            AuthService.login(with: email, password: password, success: { [weak self] (response) in
-                debugPrint(response)
+            delegate.login(with: email, password: password, success: { [weak self] (response) in
+                
                 guard response.success else {
                     let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                     self?.errorAlert(with: errorMessages?.joined())
                     return
                 }
-                self?.performSegue(withIdentifier: "gotoLocaleVC", sender: self)
-            }) { (error) in
-                debugPrint(error)
+                
+                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
+                
+            }) { [weak self] (error) in
+                self?.errorAlert(with: "Request error")
             }
         }
     }
