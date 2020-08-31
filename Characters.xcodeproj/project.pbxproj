@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3E23498724FBEAA200ED9B54 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23498624FBEAA200ED9B54 /* AppDelegate.swift */; };
 		3E23498924FBEAA200ED9B54 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23498824FBEAA200ED9B54 /* SceneDelegate.swift */; };
-		3E23498B24FBEAA200ED9B54 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23498A24FBEAA200ED9B54 /* ViewController.swift */; };
+		3E23498B24FBEAA200ED9B54 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E23498A24FBEAA200ED9B54 /* LoginVC.swift */; };
 		3E23498E24FBEAA200ED9B54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E23498C24FBEAA200ED9B54 /* Main.storyboard */; };
 		3E23499024FBEAA500ED9B54 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E23498F24FBEAA500ED9B54 /* Assets.xcassets */; };
 		3E23499324FBEAA500ED9B54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E23499124FBEAA500ED9B54 /* LaunchScreen.storyboard */; };
@@ -18,6 +18,7 @@
 		3EC811BB24FC3F5000AD8C9C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811BA24FC3F5000AD8C9C /* String.swift */; };
 		3EC811C124FC446000AD8C9C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811C024FC446000AD8C9C /* AuthService.swift */; };
 		3EC811C324FC455300AD8C9C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811C224FC455300AD8C9C /* APIModel.swift */; };
+		3EC811C524FC6DCA00AD8C9C /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811C424FC6DCA00AD8C9C /* UIViewController.swift */; };
 		607E4CE01F20C0C21E3A066B /* Pods_Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00AF338196E41BBF8BAD39A2 /* Pods_Characters.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,7 +28,7 @@
 		3E23498324FBEAA200ED9B54 /* Characters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Characters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E23498624FBEAA200ED9B54 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E23498824FBEAA200ED9B54 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3E23498A24FBEAA200ED9B54 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3E23498A24FBEAA200ED9B54 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		3E23498D24FBEAA200ED9B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E23498F24FBEAA500ED9B54 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E23499224FBEAA500ED9B54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +38,7 @@
 		3EC811BA24FC3F5000AD8C9C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3EC811C024FC446000AD8C9C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3EC811C224FC455300AD8C9C /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		3EC811C424FC6DCA00AD8C9C /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		EA3E1466FB6918EB3937AB93 /* Pods-Characters.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Characters.debug.xcconfig"; path = "Target Support Files/Pods-Characters/Pods-Characters.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				3EC811BA24FC3F5000AD8C9C /* String.swift */,
+				3EC811C424FC6DCA00AD8C9C /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				3EC811BB24FC3F5000AD8C9C /* String.swift in Sources */,
 				3E23499D24FBF7BB00ED9B54 /* Network.swift in Sources */,
+				3EC811C524FC6DCA00AD8C9C /* UIViewController.swift in Sources */,
 				3E23498B24FBEAA200ED9B54 /* LoginVC.swift in Sources */,
 				3E23498724FBEAA200ED9B54 /* AppDelegate.swift in Sources */,
 				3E23498924FBEAA200ED9B54 /* SceneDelegate.swift in Sources */,

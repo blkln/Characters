@@ -1,5 +1,5 @@
 //
-//  AuthModel.swift
+//  APIModel.swift
 //  Characters
 //
 //  Created by Serhii Kovtunenko on 30.08.2020.
@@ -31,10 +31,16 @@ struct ResponseUser: Decodable {
     let errors: APIErrors?
 }
 
+struct ResponseError: Decodable {
+    let success: Bool
+    let data: [String: String]?
+    let errors: APIErrors?
+}
+
 struct User: Decodable {
-    let uid: Int
-    let name, email, accessToken: String
-    let role, status, createdAt, updatedAt: Int
+    let uid: Int?
+    let name, email, accessToken: String?
+    let role, status, createdAt, updatedAt: Int?
 
     enum CodingKeys: String, CodingKey {
         case uid, name, email
