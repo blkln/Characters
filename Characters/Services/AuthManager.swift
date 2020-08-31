@@ -50,7 +50,7 @@ class AuthManager: AuthenticationDelegate {
             }
             success(response)
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-            UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
+            UIApplication.setRootView(storyboard.instantiateViewController(withIdentifier: "HomeNavVC"))
         }) { (error) in
             debugPrint(error)
         }

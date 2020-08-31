@@ -49,7 +49,7 @@ class LoginVC: UIViewController {
                 }
                 
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
+                UIApplication.setRootView(storyboard.instantiateViewController(withIdentifier: "HomeNavVC"))
                 
             }) { [weak self] (error) in
                 ProgressHUD.taskCompleted()
@@ -67,7 +67,7 @@ class LoginVC: UIViewController {
                 }
                 
                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
+                UIApplication.setRootView(storyboard.instantiateViewController(withIdentifier: "HomeNavVC"))
                 
             }) { [weak self] (error) in
                 ProgressHUD.taskCompleted()
