@@ -116,7 +116,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="4Wj-x5-3FX">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="P5J-yh-rDb">
-                            <color key="tintColor" red="0.99381631609999999" green="0.4160615802" blue="0.01511099376" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="logoutAction:" destination="rj5-26-uPA" id="CIu-V8-SHJ"/>
                             </connections>

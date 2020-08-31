@@ -11,10 +11,10 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        setRootVC()
         return true
     }
 
@@ -33,5 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+private extension AppDelegate {
+    
+    func setRootVC() {
+        guard AuthManager.shared.getAccessToken() != nil  else { return }
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        window?.rootViewController = storyboard.instantiateViewController(identifier: "HomeNavVC")
+    }
 }
 
