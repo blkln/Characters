@@ -6,5 +6,6 @@ target 'Characters' do
   use_frameworks!
 
   pod 'Alamofire', '~> 5.2'
+  pod 'MBProgressHUD', '~> 1.2.0'
 
 end

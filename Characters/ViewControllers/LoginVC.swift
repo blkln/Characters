@@ -38,8 +38,10 @@ class LoginVC: UIViewController {
             guard let name = nameTextField.text, !name.isEmpty else {
                 return
             }
+            ProgressHUD.taskStarted()
             delegate.signup(with: name, email: email, password: password, success: { [weak self] (response) in
                 
+                ProgressHUD.taskCompleted()
                 guard response.success else {
                     let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                     self?.errorAlert(with: errorMessages?.joined())
@@ -50,11 +52,14 @@ class LoginVC: UIViewController {
                 UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
                 
             }) { [weak self] (error) in
+                ProgressHUD.taskCompleted()
                 self?.errorAlert(with: "Request error")
             }
         } else {
+            ProgressHUD.taskStarted()
             delegate.login(with: email, password: password, success: { [weak self] (response) in
                 
+                ProgressHUD.taskCompleted()
                 guard response.success else {
                     let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                     self?.errorAlert(with: errorMessages?.joined())
@@ -65,6 +70,7 @@ class LoginVC: UIViewController {
                 UIApplication.setRootView(storyboard.instantiateViewController(identifier: "HomeNavVC"))
                 
             }) { [weak self] (error) in
+                ProgressHUD.taskCompleted()
                 self?.errorAlert(with: "Request error")
             }
         }

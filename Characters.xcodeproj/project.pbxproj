@@ -21,6 +21,7 @@
 		3E368BB724FC8FD800AB7C40 /* CharactersTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E368BB624FC8FD800AB7C40 /* CharactersTVC.swift */; };
 		3E368BB924FC936300AB7C40 /* SandboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E368BB824FC936300AB7C40 /* SandboxService.swift */; };
 		3E368BBB24FCA6B200AB7C40 /* SandboxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E368BBA24FCA6B200AB7C40 /* SandboxManager.swift */; };
+		3E368BBD24FCCAC000AB7C40 /* ProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E368BBC24FCCAC000AB7C40 /* ProgressHUD.swift */; };
 		3EC811BB24FC3F5000AD8C9C /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811BA24FC3F5000AD8C9C /* String.swift */; };
 		3EC811C124FC446000AD8C9C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811C024FC446000AD8C9C /* AuthService.swift */; };
 		3EC811C324FC455300AD8C9C /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC811C224FC455300AD8C9C /* APIModel.swift */; };
@@ -47,6 +48,7 @@
 		3E368BB624FC8FD800AB7C40 /* CharactersTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTVC.swift; sourceTree = "<group>"; };
 		3E368BB824FC936300AB7C40 /* SandboxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxService.swift; sourceTree = "<group>"; };
 		3E368BBA24FCA6B200AB7C40 /* SandboxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandboxManager.swift; sourceTree = "<group>"; };
+		3E368BBC24FCCAC000AB7C40 /* ProgressHUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHUD.swift; sourceTree = "<group>"; };
 		3EC811BA24FC3F5000AD8C9C /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3EC811C024FC446000AD8C9C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3EC811C224FC455300AD8C9C /* APIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			children = (
 				3E23499A24FBF62900ED9B54 /* Constants.swift */,
 				3EC811BC24FC3F5B00AD8C9C /* Extensions */,
+				3E368BBC24FCCAC000AB7C40 /* ProgressHUD.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			files = (
 				3E368BB524FC828F00AB7C40 /* UIApplication.swift in Sources */,
 				3EC811BB24FC3F5000AD8C9C /* String.swift in Sources */,
+				3E368BBD24FCCAC000AB7C40 /* ProgressHUD.swift in Sources */,
 				3E368BB724FC8FD800AB7C40 /* CharactersTVC.swift in Sources */,
 				3E368BB924FC936300AB7C40 /* SandboxService.swift in Sources */,
 				3E368BB024FC70DB00AB7C40 /* LocalesTVC.swift in Sources */,
@@ -380,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -434,7 +438,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

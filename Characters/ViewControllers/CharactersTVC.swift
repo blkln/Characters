@@ -25,8 +25,10 @@ class CharactersTVC: UITableViewController {
 
     func getChars() {
         guard let loc = locale else { return }
+        ProgressHUD.taskStarted()
         delegate.getText(by: loc, success: { [weak self] (response, chars) in
             
+            ProgressHUD.taskCompleted()
             guard response.success else {
                 let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                 self?.errorAlert(with: errorMessages?.joined())
@@ -41,6 +43,7 @@ class CharactersTVC: UITableViewController {
             self?.tableView.reloadData()
 
         }) { [weak self] (error) in
+            ProgressHUD.taskCompleted()
             self?.errorAlert(with: "Request error")
         }
     }

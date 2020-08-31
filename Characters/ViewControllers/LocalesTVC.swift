@@ -20,7 +20,10 @@ class LocalesTVC: UITableViewController {
     private var selectedLocale: String?
 
     @IBAction func logoutAction(_ sender: Any) {
+        ProgressHUD.taskStarted()
         delegate.logout(success: { [weak self] (response) in
+            
+            ProgressHUD.taskCompleted()
             guard response.success else {
                 let errorMessages = response.errors?.compactMap({$0.message + "\n"})
                 self?.errorAlert(with: errorMessages?.joined())
@@ -31,6 +34,7 @@ class LocalesTVC: UITableViewController {
             UIApplication.setRootView(storyboard.instantiateInitialViewController()!)
 
         }) { [weak self] (error) in
+            ProgressHUD.taskCompleted()
             self?.errorAlert(with: "Request error")
         }
     }
