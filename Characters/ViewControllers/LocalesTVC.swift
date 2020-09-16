@@ -10,18 +10,21 @@ import UIKit
 
 class LocalesTVC: UITableViewController {
 
+    var delegate: AuthenticationDelegate?
+    private var selectedLocale: String?
+    
+    //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "LocaleCell")
         navigationItem.title = "Select locale"
+        delegate = AuthManager()
     }
 
-    var delegate = AuthManager()
-    private var selectedLocale: String?
-
+    //    MARK: - Actions
     @IBAction func logoutAction(_ sender: Any) {
         ProgressHUD.taskStarted()
-        delegate.logout(success: { [weak self] (response) in
+        delegate?.logout(success: { [weak self] (response) in
             
             ProgressHUD.taskCompleted()
             guard response.success else {
@@ -42,7 +45,8 @@ class LocalesTVC: UITableViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destination = segue.destination as? CharactersTVC,
-         let locale = selectedLocale else { return }
+            let locale = selectedLocale
+            else { return }
         destination.setLocale(locale)
     }
 

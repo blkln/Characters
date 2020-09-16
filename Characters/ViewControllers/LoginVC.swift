@@ -16,12 +16,13 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmButton: UIButton!
 
-    var delegate = AuthManager()
+    var delegate: AuthenticationDelegate?
 
 //    MARK: - ViewController lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = " Welcome!"
+        delegate = AuthManager()
     }
     
 //    MARK: - Actions
@@ -39,7 +40,7 @@ class LoginVC: UIViewController {
                 return
             }
             ProgressHUD.taskStarted()
-            delegate.signup(with: name, email: email, password: password, success: { [weak self] (response) in
+            delegate?.signup(with: name, email: email, password: password, success: { [weak self] (response) in
                 
                 ProgressHUD.taskCompleted()
                 guard response.success else {
@@ -57,7 +58,7 @@ class LoginVC: UIViewController {
             }
         } else {
             ProgressHUD.taskStarted()
-            delegate.login(with: email, password: password, success: { [weak self] (response) in
+            delegate?.login(with: email, password: password, success: { [weak self] (response) in
                 
                 ProgressHUD.taskCompleted()
                 guard response.success else {

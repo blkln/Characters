@@ -14,19 +14,20 @@ class CharactersTVC: UITableViewController {
     
     private var charArr = [Char]()
     private var locale: String?
-    var delegate = SandboxManager()
+    var delegate: SandboxDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CharacterCell")
         navigationItem.title = "Characters"
+        delegate = SandboxManager()
         getChars()
     }
 
     func getChars() {
         guard let loc = locale else { return }
         ProgressHUD.taskStarted()
-        delegate.getText(by: loc, success: { [weak self] (response, chars) in
+        delegate?.getText(by: loc, success: { [weak self] (response, chars) in
             
             ProgressHUD.taskCompleted()
             guard response.success else {
