@@ -19,6 +19,7 @@ extension UIApplication {
                                    completion: (() -> Void)? = nil) {
         guard animated else {
             UIApplication.shared.keyWindow?.rootViewController = viewController
+            completion?()
             return
         }
         
