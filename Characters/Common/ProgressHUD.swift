@@ -22,7 +22,9 @@ class ProgressHUD {
     
     class func taskCompleted() -> Void {
         guard let window = UIApplication.shared.keyWindow  else { return }
-        MBProgressHUD.hide(for: window, animated: true)
+        DispatchQueue.main.async {
+            MBProgressHUD.hide(for: window, animated: true)
+        }
     }
 
 }
