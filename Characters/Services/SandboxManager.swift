@@ -20,8 +20,12 @@ class SandboxManager: SandboxDelegate {
     func getText(by locale: String, success: @escaping (Response, [Character: Int]) -> (), failure: @escaping (Error) -> ()) {
         SandboxService.getText(by: locale, success: { [weak self] (response) in
             
-            guard response.success, let text = response.data, !text.isEmpty else {
-                return
+            guard response.success,
+                let text = response.data,
+                !text.isEmpty
+                else {
+                    failure(DataResponseError.empty)
+                    return
             }
             
             text.forEach { (char) in
@@ -31,8 +35,14 @@ class SandboxManager: SandboxDelegate {
             success(response, self?.characters ?? [Character: Int]())
             
         }) { (error) in
+            failure(error)
             debugPrint(error)
         }
     }
     
 }
+
+enum DataResponseError: Error {
+    case empty
+}
+

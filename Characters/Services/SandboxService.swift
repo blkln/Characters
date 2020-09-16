@@ -12,6 +12,6 @@ class SandboxService {
     
     static func getText(by locale: String, success: @escaping (Response) -> (), failure: @escaping (Error) -> ()) {
         let params = Locale(locale: locale)
-        Network.request(with: API.getText, parameters: params, /*encoder: JSONParameterEncoder.default,*/ success: success, failure: failure)
+        Network.request(with: API.getText, parameters: params, success: success, failure: failure)
     }
 }
