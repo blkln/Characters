@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
     
     func setRootVC() {
-        guard AuthManager.shared.getAccessToken() != nil  else { return }
+        guard AuthManager().accessToken != nil  else { return }
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "HomeNavVC")
     }

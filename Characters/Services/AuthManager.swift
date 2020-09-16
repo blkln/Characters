@@ -20,33 +20,23 @@ protocol AuthenticationDelegate {
 
 class AuthManager: AuthenticationDelegate {
     
-    static let shared = AuthManager()
-    
-    private var accessToken: String? {
-        didSet {
-            UserDefaults.standard.set(accessToken, forKey: "accessToken")
-            UserDefaults.standard.synchronize()
+    var accessToken: String? {
+        
+        set {
+            UserDefaults.standard.set(newValue, forKey: "accessToken")
         }
-    }
-    
-    func getAccessToken() -> String? {
-        guard let token = accessToken else {
-            return UserDefaults.standard.string(forKey: "accessToken")
+        
+        get {
+            UserDefaults.standard.string(forKey: "accessToken")
         }
-        return token
+        
     }
-    
-    func removeAccessToken() {
-        UserDefaults.standard.removeObject(forKey: "accessToken")
-        UserDefaults.standard.synchronize()
-    }
-
     
     func signup(with name: String, email: String, password: String, success: @escaping (ResponseUser) -> (), failure: @escaping (Error) -> ()) {
-        AuthService.signup(with: name, email: email, password: password, success: { (response) in
+        AuthService.signup(with: name, email: email, password: password, success: { [weak self] (response) in
             debugPrint(response)
             if let token = response.data?.accessToken {
-                AuthManager.shared.accessToken = token
+                self?.accessToken = token
             }
             success(response)
             let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -57,10 +47,10 @@ class AuthManager: AuthenticationDelegate {
     }
     
     func login(with email: String, password: String, success: @escaping (ResponseUser) -> (), failure: @escaping (Error) -> ()) {
-        AuthService.login(with: email, password: password, success: { (response) in
+        AuthService.login(with: email, password: password, success: { [weak self] (response) in
             debugPrint(response)
             if let token = response.data?.accessToken {
-                AuthManager.shared.accessToken = token
+                self?.accessToken = token
             }
             success(response)
         }) { (error) in
@@ -69,9 +59,9 @@ class AuthManager: AuthenticationDelegate {
     }
     
     func logout(success: @escaping (Response) -> (), failure: @escaping (Error) -> ()) {
-        AuthService.logout(success: { (response) in
+        AuthService.logout(success: { [weak self] (response) in
             debugPrint(response)
-            AuthManager.shared.removeAccessToken()
+            self?.accessToken = nil
             success(response)
         }) { (error) in
             debugPrint(error)

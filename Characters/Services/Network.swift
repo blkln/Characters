@@ -57,7 +57,7 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
         
         var urlRequest = urlRequest
 
-        guard let token = AuthManager.shared.getAccessToken() else {
+        guard let token = AuthManager().accessToken else {
             return completion(.success(urlRequest))
         }
         
